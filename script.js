@@ -83,3 +83,19 @@ const renderTasks = () => {
       .join("");
   });
 };
+const addNewTask = (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(taskForm);
+  const newTask = {
+    id: Date.now(),
+    title: formData.get("title"),
+    description: formData.get("description"),
+    status: formData.get("status"),
+  };
+
+  initialTasks.push(newTask);
+  renderTasks();
+  taskDialog.close();
+  taskForm.reset();
+};
