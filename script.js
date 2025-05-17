@@ -111,3 +111,42 @@ const validateForm = () => {
   const descriptionValid = validateField(taskForm.elements.description);
   return titleValid && descriptionValid;
 };
+// Dialog Functions
+function openDialog() {
+  taskDialog.showModal();
+  // Reset form and validation states
+  taskForm.reset();
+  document.querySelectorAll(".form-group").forEach((group) => {
+    group.classList.remove("error");
+  });
+}
+
+function closeDialog() {
+  taskDialog.close();
+  taskForm.reset();
+  document.querySelectorAll(".form-group").forEach((group) => {
+    group.classList.remove("error");
+  });
+}
+
+function createTask(e) {
+  e.preventDefault();
+
+  const titleInput = document.getElementById("task-title");
+  const descInput = document.getElementById("task-desc");
+  const status = document.getElementById("task-status").value;
+
+  const isTitleValid = validateField(titleInput);
+  const isDescValid = validateField(descInput);
+
+  if (!isTitleValid || !isDescValid) {
+    return;
+  }
+
+  const task = document.createElement("div");
+  task.className = "task-div";
+  task.innerHTML = `<strong>${titleInput.value.trim()}</strong><p>${descInput.value.trim()}</p>`;
+
+  columns[status].appendChild(task);
+  closeDialog();
+}
