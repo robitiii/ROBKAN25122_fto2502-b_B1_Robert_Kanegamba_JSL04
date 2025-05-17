@@ -1,3 +1,4 @@
+/* Reset and Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,8 @@ body {
   display: flex;
   min-height: 100vh;
 }
-/* Only apply transitions to specific color properties  */
+
+/* Only apply transitions to specific color properties */
 .side-bar {
   background-color: #fff;
   border-right-color: #e4ebfa;
@@ -58,6 +60,7 @@ body {
 .create-task-btn:hover {
   background-color: #a8a4ff;
 }
+
 /* Dark Theme Overrides */
 body.dark {
   background-color: #20212c;
@@ -88,6 +91,7 @@ body.dark .form-group select {
   background-color: #2b2c37;
   color: #fff;
 }
+
 /* Sidebar Styles */
 .side-bar {
   width: 300px;
@@ -137,6 +141,7 @@ body.dark #side-logo-div {
   margin-bottom: 1rem;
   padding-left: 2rem;
 }
+
 /* Board Button Styles */
 .board-btn {
   width: calc(100% - 1.5rem); /* Adjust width to account for right margin */
@@ -189,6 +194,7 @@ body.dark #side-logo-div {
 .board-btn.active::before {
   background-color: #fff;
 }
+
 /* Dark theme overrides for sidebar */
 body.dark .board-btn {
   color: #828fa3;
@@ -260,7 +266,9 @@ body.dark .theme-toggle {
 input:checked + .slider:before {
   transform: translateX(20px);
 }
-* Main Layout */ #layout {
+
+/* Main Layout */
+#layout {
   flex: 1;
   margin-left: 300px;
   width: calc(100% - 300px);
@@ -308,6 +316,7 @@ body.dark .sticky-header {
   transition: background-color 0.2s;
   white-space: nowrap;
 }
+
 #add-task-btn:hover {
   background-color: #a8a4ff;
 }
@@ -358,6 +367,7 @@ body.dark .sticky-header {
   letter-spacing: 2.4px;
   text-transform: uppercase;
 }
+
 /* Task Cards */
 .tasks-container {
   display: flex;
@@ -388,6 +398,7 @@ body.dark .task-div {
   font-size: 0.75rem;
   line-height: 1.4;
 }
+
 /* Modal Styles */
 .modal-backdrop {
   position: fixed;
@@ -443,6 +454,7 @@ body.dark .modal {
   cursor: pointer;
   color: #828fa3;
 }
+
 /* Dialog Styles */
 .task-dialog {
   padding: 0;
@@ -492,6 +504,7 @@ body.dark .task-dialog {
   cursor: pointer;
   padding: 0.25rem;
 }
+
 /* Form Styles */
 .form-group {
   position: relative;
@@ -560,11 +573,12 @@ body.dark .task-dialog {
 /* Status Dropdown */
 .form-group select {
   appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="%23635FC7" stroke-width="2"/></svg>');
+  /* background-image: url('data:image/svg+xml;utf8,<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="%23635FC7" stroke-width="2"/></svg>'); */
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 40px;
 }
+
 /* Create Task Button */
 .create-task-btn {
   width: 100%;
@@ -601,6 +615,7 @@ body.dark .form-group input::placeholder,
 body.dark .form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.25);
 }
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .side-bar {

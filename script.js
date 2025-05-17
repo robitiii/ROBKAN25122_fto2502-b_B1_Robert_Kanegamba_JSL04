@@ -40,6 +40,7 @@ const initialTasks = [
     status: "done",
   },
 ];
+
 // DOM Elements
 const addTaskBtn = document.getElementById("add-task-btn");
 const taskDialog = document.getElementById("task-dialog");
@@ -52,12 +53,14 @@ const columns = {
   doing: document.getElementById("doing-column"),
   done: document.getElementById("done-column"),
 };
+
 // Theme Management
 const initializeTheme = () => {
   const savedTheme = localStorage.getItem("theme") || "light";
   document.body.classList.toggle("dark", savedTheme === "dark");
   themeToggleBtn.checked = savedTheme === "dark";
 };
+
 const toggleTheme = () => {
   document.body.classList.toggle("dark");
   localStorage.setItem(
@@ -65,6 +68,7 @@ const toggleTheme = () => {
     document.body.classList.contains("dark") ? "dark" : "light"
   );
 };
+
 // Task Management
 const renderTasks = () => {
   const columns = ["todo", "doing", "done"];
@@ -83,6 +87,7 @@ const renderTasks = () => {
       .join("");
   });
 };
+
 const addNewTask = (event) => {
   event.preventDefault();
 
@@ -99,6 +104,7 @@ const addNewTask = (event) => {
   taskDialog.close();
   taskForm.reset();
 };
+
 // Form Validation
 const validateField = (field) => {
   const formGroup = field.closest(".form-group");
@@ -106,11 +112,13 @@ const validateField = (field) => {
   formGroup.classList.toggle("error", !isValid);
   return isValid;
 };
+
 const validateForm = () => {
   const titleValid = validateField(taskForm.elements.title);
   const descriptionValid = validateField(taskForm.elements.description);
   return titleValid && descriptionValid;
 };
+
 // Dialog Functions
 function openDialog() {
   taskDialog.showModal();
@@ -150,6 +158,7 @@ function createTask(e) {
   columns[status].appendChild(task);
   closeDialog();
 }
+
 // Event Listeners
 addTaskBtn.addEventListener("click", openDialog);
 closeDialogBtn.addEventListener("click", closeDialog);
@@ -160,6 +169,7 @@ taskForm.addEventListener("submit", (event) => {
   }
   addNewTask(event);
 });
+
 // Input validation on blur
 document
   .getElementById("task-title")
