@@ -150,3 +150,13 @@ function createTask(e) {
   columns[status].appendChild(task);
   closeDialog();
 }
+// Event Listeners
+addTaskBtn.addEventListener("click", openDialog);
+closeDialogBtn.addEventListener("click", closeDialog);
+taskForm.addEventListener("submit", (event) => {
+  if (!validateForm()) {
+    event.preventDefault();
+    return;
+  }
+  addNewTask(event);
+});
