@@ -88,3 +88,52 @@ body.dark .form-group select {
   background-color: #2b2c37;
   color: #fff;
 }
+/* Sidebar Styles */
+.side-bar {
+  width: 300px;
+  min-width: 300px;
+  padding: 2rem 0;
+  height: 100vh;
+  border-right: 1px solid #e4ebfa;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+}
+
+body.dark .side-bar {
+  background-color: #2b2c37;
+  border-color: #3e3f4e;
+}
+
+body.dark #side-logo-div {
+  border-color: #3e3f4e;
+}
+
+#side-logo-div {
+  padding: 0 2rem 2rem;
+  border-bottom: 1px solid #e4ebfa;
+  margin-bottom: 1rem;
+}
+
+#logo {
+  height: 25px;
+  width: auto;
+}
+
+.boards-nav-links-div {
+  flex-grow: 1;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+#headline-sidepanel {
+  color: #828fa3;
+  font-size: 0.75rem;
+  letter-spacing: 2.4px;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
