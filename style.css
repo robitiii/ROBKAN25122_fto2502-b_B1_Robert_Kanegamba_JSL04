@@ -388,3 +388,58 @@ body.dark .task-div {
   font-size: 0.75rem;
   line-height: 1.4;
 }
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 480px;
+}
+
+body.dark .modal {
+  background: #2b2c37;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid #828fa3;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+}
+
+.create-task-btn {
+  background-color: #635fc7;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 24px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.close-btn {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #828fa3;
+}
