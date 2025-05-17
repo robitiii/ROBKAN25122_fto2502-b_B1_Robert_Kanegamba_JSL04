@@ -260,3 +260,51 @@ body.dark .theme-toggle {
 input:checked + .slider:before {
   transform: translateX(20px);
 }
+* Main Layout */ #layout {
+  flex: 1;
+  margin-left: 300px;
+  width: calc(100% - 300px);
+}
+
+/* Header Styles */
+.sticky-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e4ebfa;
+}
+
+body.dark .sticky-header {
+  background-color: #2b2c37;
+  border-color: #3e3f4e;
+}
+
+.header-name-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-mobile {
+  display: none;
+}
+
+.header-board-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#add-task-btn {
+  background-color: #635fc7;
+  color: #fff;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
