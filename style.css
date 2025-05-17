@@ -565,3 +565,39 @@ body.dark .task-dialog {
   background-position: right 16px center;
   padding-right: 40px;
 }
+/* Create Task Button */
+.create-task-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: #635fc7;
+  border: none;
+  border-radius: 24px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-task-btn:hover {
+  background: #a8a4ff;
+}
+
+/* Dark Theme */
+body.dark .dialog-header h2,
+body.dark .form-group label {
+  color: #fff;
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea,
+body.dark .form-group select {
+  background: #2b2c37;
+  color: #fff;
+  border-color: rgba(130, 143, 163, 0.25);
+}
+
+body.dark .form-group input::placeholder,
+body.dark .form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
