@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 0;
+  background-color: #f4f7fd;
+  color: #000;
+  display: flex;
+  min-height: 100vh;
+}
