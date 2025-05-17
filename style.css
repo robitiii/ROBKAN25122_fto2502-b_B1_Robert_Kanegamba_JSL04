@@ -12,3 +12,48 @@ body {
   display: flex;
   min-height: 100vh;
 }
+* Only apply transitions to specific color properties */ .side-bar {
+  background-color: #fff;
+  border-right-color: #e4ebfa;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.sticky-header {
+  background-color: #fff;
+  border-bottom-color: #e4ebfa;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-toggle {
+  background-color: #f4f7fd;
+  transition: background-color 0.15s ease;
+}
+
+.task-div {
+  background-color: #fff;
+  transition: background-color 0.15s ease, transform 0.2s ease;
+}
+
+.task-div:hover {
+  transform: translateY(-2px);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background-color: #fff;
+  border-color: rgba(130, 143, 163, 0.25);
+  color: #000;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+#add-task-btn,
+.create-task-btn {
+  background-color: #635fc7;
+  transition: background-color 0.15s ease;
+}
+
+#add-task-btn:hover,
+.create-task-btn:hover {
+  background-color: #a8a4ff;
+}
