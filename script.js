@@ -99,3 +99,10 @@ const addNewTask = (event) => {
   taskDialog.close();
   taskForm.reset();
 };
+// Form Validation
+const validateField = (field) => {
+  const formGroup = field.closest(".form-group");
+  const isValid = field.value.trim() !== "";
+  formGroup.classList.toggle("error", !isValid);
+  return isValid;
+};
