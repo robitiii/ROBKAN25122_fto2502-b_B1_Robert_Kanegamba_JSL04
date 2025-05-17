@@ -358,3 +358,33 @@ body.dark .sticky-header {
   letter-spacing: 2.4px;
   text-transform: uppercase;
 }
+/* Task Cards */
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.task-div {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(54, 78, 126, 0.1);
+  cursor: pointer;
+}
+
+body.dark .task-div {
+  background-color: #2b2c37;
+}
+
+.task-div strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.task-div p {
+  color: #828fa3;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
