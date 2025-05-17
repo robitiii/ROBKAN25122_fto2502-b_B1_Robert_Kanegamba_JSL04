@@ -308,3 +308,53 @@ body.dark .sticky-header {
   transition: background-color 0.2s;
   white-space: nowrap;
 }
+#add-task-btn:hover {
+  background-color: #a8a4ff;
+}
+
+/* Column Layout */
+.container {
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.card-column-main {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  gap: 1.5rem;
+  min-height: calc(100vh - 97px);
+}
+
+.column-div {
+  height: fit-content;
+}
+
+.column-head-div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+#todo-dot {
+  background-color: #49c4e5;
+}
+#doing-dot {
+  background-color: #8471f2;
+}
+#done-dot {
+  background-color: #67e2ae;
+}
+
+.columnHeader {
+  color: #828fa3;
+  font-size: 0.75rem;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
