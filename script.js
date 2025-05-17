@@ -160,3 +160,31 @@ taskForm.addEventListener("submit", (event) => {
   }
   addNewTask(event);
 });
+// Input validation on blur
+document
+  .getElementById("task-title")
+  .addEventListener("blur", (e) => validateField(e.target));
+document
+  .getElementById("task-desc")
+  .addEventListener("blur", (e) => validateField(e.target));
+
+// Close dialog when clicking outside
+taskDialog.addEventListener("click", (e) => {
+  const dialogDimensions = taskDialog.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    closeDialog();
+  }
+});
+
+// Initialize theme from localStorage if available
+document.addEventListener("DOMContentLoaded", () => {
+  initializeTheme();
+  renderTasks();
+});
+
+themeToggleBtn.addEventListener("click", toggleTheme);
