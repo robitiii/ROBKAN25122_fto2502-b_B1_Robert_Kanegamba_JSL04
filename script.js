@@ -40,3 +40,15 @@ const initialTasks = [
     status: "done",
   },
 ];
+// DOM Elements
+const addTaskBtn = document.getElementById("add-task-btn");
+const taskDialog = document.getElementById("task-dialog");
+const closeDialogBtn = document.getElementById("close-dialog");
+const taskForm = document.getElementById("task-form");
+const themeToggleBtn = document.getElementById("theme-switch");
+
+const columns = {
+  todo: document.getElementById("todo-column"),
+  doing: document.getElementById("doing-column"),
+  done: document.getElementById("done-column"),
+};
