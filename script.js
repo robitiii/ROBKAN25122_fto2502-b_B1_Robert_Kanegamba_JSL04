@@ -106,3 +106,8 @@ const validateField = (field) => {
   formGroup.classList.toggle("error", !isValid);
   return isValid;
 };
+const validateForm = () => {
+  const titleValid = validateField(taskForm.elements.title);
+  const descriptionValid = validateField(taskForm.elements.description);
+  return titleValid && descriptionValid;
+};
