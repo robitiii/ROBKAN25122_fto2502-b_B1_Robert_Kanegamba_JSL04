@@ -12,7 +12,8 @@ body {
   display: flex;
   min-height: 100vh;
 }
-* Only apply transitions to specific color properties */ .side-bar {
+/* Only apply transitions to specific color properties  */
+.side-bar {
   background-color: #fff;
   border-right-color: #e4ebfa;
   transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -56,4 +57,34 @@ body {
 #add-task-btn:hover,
 .create-task-btn:hover {
   background-color: #a8a4ff;
+}
+/* Dark Theme Overrides */
+body.dark {
+  background-color: #20212c;
+  color: #fff;
+}
+
+body.dark .side-bar {
+  background-color: #2b2c37;
+  border-color: #3e3f4e;
+}
+
+body.dark .sticky-header {
+  background-color: #2b2c37;
+  border-color: #3e3f4e;
+}
+
+body.dark .theme-toggle {
+  background-color: #20212c;
+}
+
+body.dark .task-div {
+  background-color: #2b2c37;
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea,
+body.dark .form-group select {
+  background-color: #2b2c37;
+  color: #fff;
 }
