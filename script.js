@@ -65,3 +65,21 @@ const toggleTheme = () => {
     document.body.classList.contains("dark") ? "dark" : "light"
   );
 };
+// Task Management
+const renderTasks = () => {
+  const columns = ["todo", "doing", "done"];
+  columns.forEach((status) => {
+    const column = document.getElementById(`${status}-column`);
+    const tasksInColumn = initialTasks.filter((task) => task.status === status);
+
+    column.innerHTML = tasksInColumn
+      .map(
+        (task) => `
+        <div class="task-div" data-task-id="${task.id}">
+          <strong>${task.title}</strong>
+        </div>
+      `
+      )
+      .join("");
+  });
+};
