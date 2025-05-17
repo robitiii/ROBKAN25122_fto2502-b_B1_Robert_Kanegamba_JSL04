@@ -52,3 +52,16 @@ const columns = {
   doing: document.getElementById("doing-column"),
   done: document.getElementById("done-column"),
 };
+// Theme Management
+const initializeTheme = () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.body.classList.toggle("dark", savedTheme === "dark");
+  themeToggleBtn.checked = savedTheme === "dark";
+};
+const toggleTheme = () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+};
