@@ -87,7 +87,55 @@
         </main>
       </div>
     </div>
+    <!-- Task Dialog -->
+    <dialog id="task-dialog" class="task-dialog">
+      <div class="dialog-content">
+        <div class="dialog-header">
+          <h2>Add New Task</h2>
+          <button class="close-btn" id="close-dialog">&times;</button>
+        </div>
+        <form id="task-form" method="dialog">
+          <div class="form-group">
+            <label for="task-title">
+              Title
+              <span class="error-message">Please fill out this field.</span>
+            </label>
+            <input
+              type="text"
+              id="task-title"
+              name="title"
+              placeholder="e.g. Take chilled break"
+              required
+            />
+          </div>
 
+          <div class="form-group">
+            <label for="task-desc">
+              Description
+              <span class="error-message">Please fill out this field.</span>
+            </label>
+            <textarea
+              id="task-desc"
+              name="description"
+              placeholder="e.g. Pet your dog, have a cup of coffee, dance to your favourite song and come back to crush this challenge."
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="task-status">Status</label>
+            <select id="task-status" name="status" required>
+              <option value="todo">Todo</option>
+              <option value="doing">Doing</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+
+          <button type="submit" class="create-task-btn">Create Task</button>
+        </form>
+      </div>
+    </dialog>
     <script src="script.js"></script>
   </body>
 </html>
