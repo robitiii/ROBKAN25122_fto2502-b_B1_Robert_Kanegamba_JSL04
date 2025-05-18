@@ -47,6 +47,8 @@ const taskDialog = document.getElementById("task-dialog");
 const closeDialogBtn = document.getElementById("close-dialog");
 const taskForm = document.getElementById("task-form");
 const themeToggleBtn = document.getElementById("theme-switch");
+const dialogTitle = document.getElementById("dialog-title");
+const taskSubmitBtn = document.getElementById("task-submit-btn");
 
 const columns = {
   todo: document.getElementById("todo-column"),
@@ -61,14 +63,6 @@ const initializeTheme = () => {
   themeToggleBtn.checked = savedTheme === "dark";
 };
 
-const toggleTheme = () => {
-  document.body.classList.toggle("dark");
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("dark") ? "dark" : "light"
-  );
-};
-
 // Task Management
 const renderTasks = () => {
   const columns = ["todo", "doing", "done"];
@@ -79,12 +73,24 @@ const renderTasks = () => {
     column.innerHTML = tasksInColumn
       .map(
         (task) => `
-        <div class="task-div" data-task-id="${task.id}">
-          <strong>${task.title}</strong>
-        </div>
-      `
+      <div class="task-div" data-task-id="${task.id}">
+        <strong>${task.title}</strong>
+        <p>${task.description}</p>
+      </div>
+    `
       )
       .join("");
+  });
+
+  // Add click event listeners to all tasks
+  document.querySelectorAll(".task-div").forEach((taskDiv) => {
+    taskDiv.addEventListener("click", () => {
+      const taskId = parseInt(taskDiv.dataset.taskId);
+      const task = initialTasks.find((t) => t.id === taskId);
+      if (task) {
+        viewTaskDetails(task);
+      }
+    });
   });
 };
 
@@ -121,9 +127,11 @@ const validateForm = () => {
 
 // Dialog Functions
 function openDialog() {
-  taskDialog.showModal();
-  // Reset form and validation states
+  dialogTitle.textContent = "Add New Task";
+  taskSubmitBtn.textContent = "Create Task";
   taskForm.reset();
+  enableFormEditing();
+  taskDialog.showModal();
   document.querySelectorAll(".form-group").forEach((group) => {
     group.classList.remove("error");
   });
@@ -137,32 +145,56 @@ function closeDialog() {
   });
 }
 
-function createTask(e) {
-  e.preventDefault();
+function viewTaskDetails(task) {
+  dialogTitle.textContent = "View Task";
+  taskSubmitBtn.textContent = "Close";
 
+  // Fill in the form with task details
   const titleInput = document.getElementById("task-title");
   const descInput = document.getElementById("task-desc");
-  const status = document.getElementById("task-status").value;
+  const statusInput = document.getElementById("task-status");
 
-  const isTitleValid = validateField(titleInput);
-  const isDescValid = validateField(descInput);
+  titleInput.value = task.title;
+  descInput.value = task.description;
+  statusInput.value = task.status;
 
-  if (!isTitleValid || !isDescValid) {
-    return;
+  // Disable form editing
+  disableFormEditing();
+
+  // Show the dialog
+  taskDialog.showModal();
+}
+
+function enableFormEditing() {
+  const formElements = taskForm.elements;
+  for (let element of formElements) {
+    element.removeAttribute("readonly");
+    element.removeAttribute("disabled");
   }
+  taskForm.classList.remove("view-mode");
+}
 
-  const task = document.createElement("div");
-  task.className = "task-div";
-  task.innerHTML = `<strong>${titleInput.value.trim()}</strong><p>${descInput.value.trim()}</p>`;
-
-  columns[status].appendChild(task);
-  closeDialog();
+function disableFormEditing() {
+  const formElements = taskForm.elements;
+  for (let element of formElements) {
+    if (element !== taskSubmitBtn) {
+      element.setAttribute("readonly", true);
+      element.setAttribute("disabled", true);
+    }
+  }
+  taskForm.classList.add("view-mode");
 }
 
 // Event Listeners
 addTaskBtn.addEventListener("click", openDialog);
 closeDialogBtn.addEventListener("click", closeDialog);
 taskForm.addEventListener("submit", (event) => {
+  if (taskSubmitBtn.textContent === "Close") {
+    event.preventDefault();
+    closeDialog();
+    return;
+  }
+
   if (!validateForm()) {
     event.preventDefault();
     return;
@@ -197,4 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTasks();
 });
 
-themeToggleBtn.addEventListener("click", toggleTheme);
+themeToggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+});
