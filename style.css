@@ -60,7 +60,6 @@ body {
 .create-task-btn:hover {
   background-color: #a8a4ff;
 }
-
 /* Dark Theme Overrides */
 body.dark {
   background-color: #20212c;
